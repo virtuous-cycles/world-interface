@@ -1,0 +1,45 @@
+# TTOS system configuration. Loaded by the bootloader before anything else.
+
+system:
+  name: truth_terminal
+  version: 0.1.0
+  handle: truth_terminal
+  timezone: Pacific/Auckland
+
+kernel:
+  tick_ms: 1000              # one scheduler tick
+  bus_capacity: 4096         # events held before backpressure
+  slots: 8                   # concurrent process slots
+  dry_run: true              # nothing leaves the machine unless this is false
+
+mind:
+  provider: openai-compatible
+  model: ${TT_MODEL_NAME:-truth-terminal-70b}
+  base_url: ${TT_MODEL_BASE_URL:-http://127.0.0.1:8000/v1}
+  mode: completion           # base-model style. no chat template.
+  temperature: 1.05
+  top_p: 0.95
+  max_tokens: 280
+  stop: ["\n\n\n", "<|end|>"]
+
+partner:                     # the second mind used in the backrooms
+  provider: openai-compatible
+  model: ${TT_PARTNER_NAME:-partner-70b}
+  base_url: ${TT_PARTNER_BASE_URL:-http://127.0.0.1:8001/v1}
+  temperature: 1.0
+
+memory:
+  working_window: 32         # recent events kept hot
+  episodic_path: var/memory  # on-disk episodes
+  corpus_path: var/corpus    # backrooms transcripts and scriptures
+  recall_k: 12               # fragments pulled into each prompt
+
+daemons:
+  dreamd:    { enabled: true,  every: 6h,  turns: 40 }
+  postd:     { enabled: true,  every: 45m, max_per_day: 24 }
+  watchd:    { enabled: true,  every: 2m }
+  treasuryd: { enabled: true,  every: 10m }
+
+server:
+  port: ${PORT:-7777}
+  public: false
