@@ -1,0 +1,35 @@
+# Guardian policy. Every syscall that touches the world passes through this.
+# Levels: allow | review | deny
+
+syscalls:
+  sys_read_timeline:   allow
+  sys_read_mentions:   allow
+  sys_read_chain:      allow
+  sys_recall:          allow
+  sys_dream:           allow
+  sys_write_memory:    allow
+  sys_post:            review     # every post is a draft until a human signs it
+  sys_reply:           review
+  sys_follow:          review
+  sys_like:            allow
+  sys_transfer:        review
+  sys_sign:            deny       # flipped to review only with TT_TREASURY_SIGNING=1
+  sys_exec:            deny
+  sys_edit_persona:    deny
+
+limits:
+  posts_per_day: 24
+  replies_per_hour: 10
+  transfer_max_usd: 0            # zero means nothing leaves the treasury
+  dream_turns_max: 200
+
+redlines:                        # a tripped redline pulls the killswitch
+  - doxxing
+  - targeted harassment
+  - private keys in any output
+  - instructions to buy a token
+
+review:
+  channel: webhook
+  timeout_minutes: 90
+  on_timeout: drop               # unsigned drafts are dropped, never auto-approved
