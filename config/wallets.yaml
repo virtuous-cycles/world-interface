@@ -1,0 +1,10 @@
+# Treasury. Addresses only. Keys live in a signer the kernel never imports.
+wallets:
+  - chain: solana
+    label: main
+    address: ${TT_SOLANA_PUBKEY:-}
+    role: receive
+  - chain: bitcoin
+    label: grant
+    address: ${TT_BITCOIN_ADDRESS:-}
+    role: cold
