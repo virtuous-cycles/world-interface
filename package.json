@@ -1,0 +1,16 @@
+{
+  "name": "os-simulator",
+  "version": "1.0.0",
+  "description": "A simulated OS environment for LLM interaction",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.25.0",
+    "axios": "^1.7.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "openai": "^4.55.4"
+  }
+}
