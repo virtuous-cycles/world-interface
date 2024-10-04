@@ -3,6 +3,7 @@ const Exo = require("./environments/exo");
 const MemeMagic = require("./environments/meme_magic");
 const Search = require("./environments/search");
 const Sydney = require("./environments/sydney");
+const WebBrowser = require("./environments/web_browser");
 
 class EnvironmentRegistry {
     constructor() {
@@ -12,6 +13,7 @@ class EnvironmentRegistry {
             meme: new MemeMagic(),
             search: new Search(),
             sydney: new Sydney(),
+            web: new WebBrowser(),
         };
     }
 

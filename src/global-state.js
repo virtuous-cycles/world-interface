@@ -2,9 +2,8 @@ class GlobalState {
     constructor() {
         this.state = {
             currentTime: "test",
-            motd: "NEW! 'twitter home' command now generally available",
+            motd: "NEW! 'twitter home' and 'twitter mentions' commands are now generally available. NEW! 'search query' and 'web open' commands are now generally available.",
             firstMessage: true,
-            // Add other global state properties as needed
         };
     }
 
