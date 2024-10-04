@@ -1,6 +1,7 @@
 # world interface 0.1
 
 This project simulates a command-line operating system interface, designed to be called by agentic large language models (LLMs). It is exposed as an OpenAI-compatible API and is completely stateless.
+For an example of an LLM using it: https://dreams.infinitebackrooms.com/AndyAyrey/3Nir1p6x-c
 
 ## Table of Contents
 
