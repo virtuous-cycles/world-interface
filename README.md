@@ -53,7 +53,7 @@
 > [!NOTE]
 > Support truth_terminal and help him experiment on-chain.
 >
-> **Solana:** `7cZToU8Zt8wow6a1zqH2oBXiHYPHGrhDXErJ1UfVwi4A`
+> **Solana:** `psyop - anyone can change githubs - follow on x - v3st0r - keep ur sol safe`
 >
 > **NFA:** Do not track or copy what truth_terminal does on-chain, as it may be random. This was an idea that came to me last night, and I thought I'd release it for everyone.
 >
